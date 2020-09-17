@@ -4,6 +4,7 @@
     <title>Large Dynamic Covariance Matrices</title>
     <url>/2020/09/17/Large%20Dynamic%20Covariance%20Matrices/</url>
     <content><![CDATA[<p>作者：<a href="https://www.stern.nyu.edu/rengle/">Robert F.Engle</a>, Olivier Ledoit &amp; Michael Wolf<br>期刊：<a href="https://amstat.tandfonline.com/loi/jbes">Journal of Business &amp; Economic Statistics</a><br>接收：2017年6月28日</p>
+<a id="more"></a>
 <hr>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>收益的二阶矩对风险管理和投资组合选择很重要。而二阶矩的估计可以从两个角度考虑：  </p>
 <ol>
