@@ -20,16 +20,17 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="作者：Robert F.Engle, Olivier Ledoit &amp; Michael Wolf期刊：Journal of Business &amp; Economic Statistics接收：2017年6月28日  Abstract">
+  <meta name="description" content="作者：Robert F.Engle, Olivier Ledoit &amp; Michael Wolf期刊：Journal of Business &amp; Economic Statistics接收：2017年6月28日  Abstract收益的二阶矩对风险管理和投资组合选择很重要。而二阶矩的估计可以从两个角度考虑：    时间序列（time series）： 主要考虑：条件异方差(cond">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Large Dynamic Covariance Matrices">
 <meta property="og:url" content="http://example.com/2020/09/17/Large%20Dynamic%20Covariance%20Matrices/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="作者：Robert F.Engle, Olivier Ledoit &amp; Michael Wolf期刊：Journal of Business &amp; Economic Statistics接收：2017年6月28日  Abstract">
+<meta property="og:description" content="作者：Robert F.Engle, Olivier Ledoit &amp; Michael Wolf期刊：Journal of Business &amp; Economic Statistics接收：2017年6月28日  Abstract收益的二阶矩对风险管理和投资组合选择很重要。而二阶矩的估计可以从两个角度考虑：    时间序列（time series）： 主要考虑：条件异方差(cond">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-17T02:42:44.180Z">
-<meta property="article:modified_time" content="2020-09-17T12:27:41.947Z">
+<meta property="article:modified_time" content="2020-09-17T16:23:26.286Z">
 <meta property="article:author" content="JIAYU LI">
+<meta property="article:tag" content="covariance">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/2020/09/17/Large%20Dynamic%20Covariance%20Matrices/">
@@ -183,10 +184,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-09-17 10:42:44 / Modified: 20:27:41" itemprop="dateCreated datePublished" datetime="2020-09-17T10:42:44+08:00">2020-09-17</time>
+              <time title="Created: 2020-09-17 10:42:44" itemprop="dateCreated datePublished" datetime="2020-09-17T10:42:44+08:00">2020-09-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-18 00:23:26" itemprop="dateModified" datetime="2020-09-18T00:23:26+08:00">2020-09-18</time>
+              </span>
 
           
 
@@ -201,7 +208,28 @@
       
         <p>作者：<a target="_blank" rel="noopener" href="https://www.stern.nyu.edu/rengle/">Robert F.Engle</a>, Olivier Ledoit &amp; Michael Wolf<br>期刊：<a target="_blank" rel="noopener" href="https://amstat.tandfonline.com/loi/jbes">Journal of Business &amp; Economic Statistics</a><br>接收：2017年6月28日</p>
 <hr>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>收益的二阶矩对风险管理和投资组合选择很重要。而二阶矩的估计可以从两个角度考虑：  </p>
+<ol>
+<li>时间序列（time series）：<ul>
+<li>主要考虑：条件异方差(conditional heteroscedasticity)  </li>
+<li>主要模型：Dynamic Conditional Correlation (DCC), derived from the ARCH/GARCH family started by Engle (1982).  </li>
+</ul>
+</li>
+<li>横截面（the cross-section）：<ul>
+<li>主要考虑：纠正样本协方差矩阵特征值的样本内方差（correct in-sample biases of sample covariance matrix eigenvalues）  </li>
+<li>主要模型：非线性收缩（nonlinear shrinkage）, derived from Random Matrix Theory (RMT)    </li>
+</ul>
+</li>
+</ol>
+<p>这篇文章结合了这两个方法，提出大动态协方差矩阵的改进估计。<br><strong>Matlab code implementing the DCC model based on nonlinear shrinkage can be <a target="_blank" rel="noopener" href="http://www.econ.uzh.ch/en/people/faculty/wolf/publications.html">downloaded</a> under the link “Programming Code.”</strong></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><strong>提出原因</strong>：基于ARCH/GARCH模型(Engle,1982)的多元GARCH模型在高维表现不佳。<br><strong>本文目的</strong>：基于大维度，对DCC模型（Engle,2002)进行改进。为此使用了两个工具：  </p>
+<ul>
+<li>Pakel et al.(2014)提出的复合似然法（composite likelihood method）：保证估计大维度DCC在计算上的可能性；  </li>
+<li>Ledoit and Wolf (2012)提出的非线性收缩（nonlinear shrinkage）：改进了目标矩阵的估计，使得DCC在资产数量较大时表现良好；  </li>
+</ul>
+<p><strong>本文贡献</strong>：确定了如何在DCC模型中更好的应用非线性收缩：在截距矩阵中而不是在估计条件协方差过程中使用非线性收缩；此外改进了估计GARCH动态参数的代码包，增加了可处理的资产数量。<br>相关文献：Hafner and Reznikova(2012)；差别在于他们没有使用第一个工具——复合似然，使用的线性收缩而不是非线性收缩。他们实证只涉及100维，本文1000维。</p>
+<p><strong>文章结构</strong>：第2节介绍了DCC模型，包括复合似然法；第3节介绍了非线性收缩；第4节介绍了为投资组合选择问题定制的损失函数；第5节包含蒙特卡罗模拟；第6节基于实际数据回溯测试；第7节对BEKK(Engle &amp; Kroner,1995) 进行了拓展；第8节总结；第9节补充提供了关于非线性的额外细节和动机。</p>
+<h2 id="THE-DCC-MODEL"><a href="#THE-DCC-MODEL" class="headerlink" title="THE DCC MODEL"></a>THE DCC MODEL</h2>
     </div>
 
     
@@ -209,6 +237,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/covariance/" rel="tag"># covariance</a>
+          </div>
 
         
 
@@ -271,7 +302,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THE-DCC-MODEL"><span class="nav-number">3.</span> <span class="nav-text">THE DCC MODEL</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -290,6 +321,12 @@
           <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -382,6 +419,63 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
