@@ -28,7 +28,7 @@
 <meta property="og:description" content="作者：Robert F.Engle, Olivier Ledoit &amp; Michael Wolf期刊：Journal of Business &amp; Economic Statistics接收：2017年6月28日">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-17T02:42:44.180Z">
-<meta property="article:modified_time" content="2020-09-17T16:41:57.976Z">
+<meta property="article:modified_time" content="2020-09-17T16:52:49.214Z">
 <meta property="article:author" content="JIAYU LI">
 <meta property="article:tag" content="covariance">
 <meta name="twitter:card" content="summary">
@@ -192,7 +192,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-18 00:41:57" itemprop="dateModified" datetime="2020-09-18T00:41:57+08:00">2020-09-18</time>
+                <time title="Modified: 2020-09-18 00:52:49" itemprop="dateModified" datetime="2020-09-18T00:52:49+08:00">2020-09-18</time>
               </span>
 
           
@@ -223,6 +223,7 @@
 </li>
 </ol>
 <p>这篇文章结合了这两个方法，提出大动态协方差矩阵的改进估计。<br><strong>Matlab code implementing the DCC model based on nonlinear shrinkage can be <a target="_blank" rel="noopener" href="http://www.econ.uzh.ch/en/people/faculty/wolf/publications.html">downloaded</a> under the link “Programming Code.”</strong></p>
+<hr>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><strong>提出原因</strong>：基于ARCH/GARCH模型(Engle,1982)的多元GARCH模型在高维表现不佳。<br><strong>本文目的</strong>：基于大维度，对DCC模型（Engle,2002)进行改进。为此使用了两个工具：  </p>
 <ul>
 <li>Pakel et al.(2014)提出的复合似然法（composite likelihood method）：保证估计大维度DCC在计算上的可能性；  </li>
@@ -230,7 +231,8 @@
 </ul>
 <p><strong>本文贡献</strong>：确定了如何在DCC模型中更好的应用非线性收缩：在截距矩阵中而不是在估计条件协方差过程中使用非线性收缩；此外改进了估计GARCH动态参数的代码包，增加了可处理的资产数量。<br>相关文献：Hafner and Reznikova(2012)；差别在于他们没有使用第一个工具——复合似然，使用的线性收缩而不是非线性收缩。他们实证只涉及100维，本文1000维。</p>
 <p><strong>文章结构</strong>：第2节介绍了DCC模型，包括复合似然法；第3节介绍了非线性收缩；第4节介绍了为投资组合选择问题定制的损失函数；第5节包含蒙特卡罗模拟；第6节基于实际数据回溯测试；第7节对BEKK(Engle &amp; Kroner,1995) 进行了拓展；第8节总结；第9节补充提供了关于非线性的额外细节和动机。</p>
-<h2 id="THE-DCC-MODEL"><a href="#THE-DCC-MODEL" class="headerlink" title="THE DCC MODEL"></a>THE DCC MODEL</h2>
+<hr>
+<h2 id="The-DCC-Model"><a href="#The-DCC-Model" class="headerlink" title="The DCC Model"></a>The DCC Model</h2>
     </div>
 
     
@@ -303,7 +305,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THE-DCC-MODEL"><span class="nav-number">3.</span> <span class="nav-text">THE DCC MODEL</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-DCC-Model"><span class="nav-number">3.</span> <span class="nav-text">The DCC Model</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
