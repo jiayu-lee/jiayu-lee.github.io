@@ -20,22 +20,27 @@
 </li>
 </ol>
 <p>这篇文章结合了这两个方法，提出大动态协方差矩阵的改进估计。<br>Matlab code implementing the DCC model based on nonlinear shrinkage can be <a href="http://www.econ.uzh.ch/en/people/faculty/wolf/publications.html">downloaded</a> under the link “Programming Code.”</p>
-<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p><strong>提出原因</strong>：基于ARCH/GARCH模型(Engle,1982)的多元GARCH模型在高维表现不佳。<br><strong>本文目的</strong>：基于大维度，对DCC模型（Engle,2002)进行改进。为此使用了两个工具：  </p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><strong>提出原因</strong>：基于ARCH/GARCH模型(Engle,1982)的多元GARCH模型在高维表现不佳。<br><strong>本文目的</strong>：基于大维度，对DCC模型（Engle,2002)进行改进。为此使用了两个工具：  </p>
 <ul>
 <li>Pakel et al.(2014)提出的复合似然法（composite likelihood method）：保证估计大维度DCC在计算上的可能性；  </li>
 <li>Ledoit and Wolf (2012)提出的非线性收缩（nonlinear shrinkage）：改进了目标矩阵的估计，使得DCC在资产数量较大时表现良好；  </li>
 </ul>
 <p><strong>本文贡献</strong>：确定了如何在DCC模型中更好的应用非线性收缩：在截距矩阵中而不是在估计条件协方差过程中使用非线性收缩；此外改进了估计GARCH动态参数的代码包，增加了可处理的资产数量。<br>相关文献：Hafner and Reznikova(2012)；差别在于他们没有使用第一个工具——复合似然，使用的线性收缩而不是非线性收缩。他们实证只涉及100维，本文1000维。</p>
 <p><strong>文章结构</strong>：第2节介绍了DCC模型，包括复合似然法；第3节介绍了非线性收缩；第4节介绍了为投资组合选择问题定制的损失函数；第5节包含蒙特卡罗模拟；第6节基于实际数据回溯测试；第7节对BEKK(Engle &amp; Kroner,1995) 进行了拓展；第8节总结；第9节补充提供了关于非线性的额外细节和动机。</p>
-<h2 id="2-The-DCC-Model"><a href="#2-The-DCC-Model" class="headerlink" title="2. The DCC Model"></a>2. The DCC Model</h2><p>base:Engle(2002) and Engle(2009, sec. 11.2)</p>
+<h2 id="The-DCC-Model"><a href="#The-DCC-Model" class="headerlink" title="The DCC Model"></a>The DCC Model</h2><p>base:Engle(2002) and Engle(2009, sec. 11.2)</p>
 <h3 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h3><p>$ i \in (1,N);$ 其中 $N$ 是协方差矩阵的维度。<br>$ t \in (1,T);$ 其中 $T$ 是样本量。</p>
 <ul>
 <li>$r_{i,t}:$：变量 $i$ 在 $t$ 时刻的观测数据，${\bf{r}}_t:=(r_{1,t},…,r_{N,t})$</li>
 <li>$d_{i,t}^2 := var(r_{i,t}|\mathcal{F}_{t-1}):$ 第$i$个变量在$t$时刻的条件方差。</li>
 <li>$D_t$ 是$N$ 维对角矩阵，其对角元素为$d_{i,t}$</li>
 <li>$H_t := cov({\bf{r}}_t|\mathcal{F})$：在$t$时刻的条件协方差矩阵；因此有$Diag(H_t) = D_t^2$</li>
-<li>$s_{i,t} := r_{i,t} / d_{i,t}$</li>
+<li>$s_{i,t} := r_{i,t} / d_{i,t}$： 数据除以条件标准差进行标准化。${\bf{s}}_t := (s_{1,t},…,s_{N,t})’$</li>
+<li>$R_t:=Corr({\bf{r}}_t|\mathcal{F}_{t-1})=cov({\bf{s}}_t|\mathcal{F}_{t-1})$：在$t$条件关系矩阵。PS:经标准化的样本数据的协方差矩阵就是原始样本数据的相关矩阵。</li>
+<li>$\sigma_i^2 := E(d_{i,t}^2) = var(r_{i,t})$：第i个序列的无条件方差。</li>
+<li>$C := Corr({\bf{r}}_t) = cov({\bf{s}}_t)$：无条件相关矩阵。</li>
 </ul>
+<h3 id="Model-Definition"><a href="#Model-Definition" class="headerlink" title="Model Definition"></a>Model Definition</h3><p>对于单变量动态波动模型，我们选择了$GARCH(1,1)$过程：</p>
+<script type="math/tex; mode=display">d_{i,t}^2 = \omega + a_ir_{i,t-1}^2 + b_i d_{i,t-1}^2,  \tag{2.1}</script><p>其中$(\omega_i,a_i,b_i)$是$GARCH(1,1)$过程的参数。</p>
 ]]></content>
       <tags>
         <tag>covariance</tag>
