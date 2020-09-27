@@ -8,7 +8,7 @@
       <link href="2020/09/26/VEC-BEKK/"/>
       <url>2020/09/26/VEC-BEKK/</url>
       
-        <content type="html"><![CDATA[<p>作者：Christian M. Hafner, Arie Preminger<br>期刊：Journal of Multivariate Analysis<br>接收：2007年10月0日</p><a id="more"></a><hr><h2 id="VEC-BEKK求导问题"><a href="#VEC-BEKK求导问题" class="headerlink" title="VEC-BEKK求导问题"></a>VEC-BEKK求导问题</h2><p>VEC model:</p><script type="math/tex; mode=display">y_t = H_t^{1/2}\xi_t</script><p>其中$\xi$是独立同分布中心随机变量。</p><p>条件协方差矩阵为：</p><script type="math/tex; mode=display">E(y_ty_t'|\mathcal{F}) = H_t</script><p>其中$\mathcal{F}_t = \sigma(y_t,y_{t-1},…)$</p><p>根据最常见的vec(1,1)模型有：</p><p>$$h_t = \omega + A\eta_{t-1} + Bh_{t-1}<br>其中$\eta_t = vech(y_ty_t’)$，$h_t = vech(H_t) \in \mathdd{R}^d$，$d = N(N+1)/2$</p>]]></content>
+        <content type="html"><![CDATA[<p>作者：Christian M. Hafner, Arie Preminger<br>期刊：Journal of Multivariate Analysis<br>接收：2007年10月0日</p><a id="more"></a><hr><h2 id="VEC-BEKK求导问题"><a href="#VEC-BEKK求导问题" class="headerlink" title="VEC-BEKK求导问题"></a>VEC-BEKK求导问题</h2><p>VEC model:</p><script type="math/tex; mode=display">y_t = H_t^{1/2}\xi_t</script><p>其中$\xi$是独立同分布中心随机变量。</p><p>条件协方差矩阵为：</p><script type="math/tex; mode=display">E(y_ty_t'|\mathcal{F}) = H_t</script><p>其中$\mathcal{F}_t = \sigma(y_t,y_{t-1},…)$</p><p>根据最常见的vec(1,1)模型有：</p><script type="math/tex; mode=display">h_t = \omega + A\eta_{t-1} + Bh_{t-1}</script><p>其中$\eta_t = vech(y_ty_t’)$，$h_t = vech(H_t) \in \mathbb{R}^d$，$d = N(N+1)/2$</p>]]></content>
       
       
       
