@@ -96,10 +96,11 @@
 模拟变量：
 returns : N * T 矩阵  
 样本量T = 1250  ，大约为5年的日数据  
-因此集中度比 c := N/T = 0.8  (预期收缩效应）
+因此集中度比 c := N/T = 0.8  (预期收缩效应）  
 
 ### Numerical Details
 
+（待补充）
 
 ### List of Candidate Estimators
 
