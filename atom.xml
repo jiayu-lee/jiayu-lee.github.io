@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-09-29T05:50:19.772Z</updated>
+  <updated>2020-09-29T05:52:59.062Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Relavant link</title>
-    <link href="http://example.com/2020/09/29/Relavant%20link/"/>
-    <id>http://example.com/2020/09/29/Relavant%20link/</id>
+    <title>Related links</title>
+    <link href="http://example.com/2020/09/29/Related%20links/"/>
+    <id>http://example.com/2020/09/29/Related%20links/</id>
     <published>2020-09-29T05:45:21.610Z</published>
-    <updated>2020-09-29T05:50:19.772Z</updated>
+    <updated>2020-09-29T05:52:59.062Z</updated>
     
     <content type="html"><![CDATA[<p>计算过程中用到的一些资料：<br>矩阵论记号约定<br>Frobenius 范数及其求偏导法则</p><a id="more"></a><hr><p><a href="https://blog.csdn.net/txwh0820/article/details/46392293">矩阵的 Frobenius 范数及其求偏导法则</a></p><p><a href="https://zhuanlan.zhihu.com/p/75236945">矩阵论记号约定</a></p>]]></content>
     
