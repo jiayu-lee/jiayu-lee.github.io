@@ -20,28 +20,33 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="作者：Robert F.Engle, Olivier Ledoit &amp; Michael Wolf期刊：Journal of Business &amp; Economic Statistics接收：2017年6月28日">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Large Dynamic Covariance Matrices (Code)">
+<meta property="og:url" content="http://example.com/2020/09/29/Large%20Dynamic%20Covariance%20Matrices-Code/index.html">
 <meta property="og:site_name">
+<meta property="og:description" content="作者：Robert F.Engle, Olivier Ledoit &amp; Michael Wolf期刊：Journal of Business &amp; Economic Statistics接收：2017年6月28日">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-29T01:42:35.094Z">
+<meta property="article:modified_time" content="2020-09-29T04:37:02.353Z">
 <meta property="article:author" content="JIAYU LI">
+<meta property="article:tag" content="covariance">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2020/09/29/Large%20Dynamic%20Covariance%20Matrices-Code/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title></title>
+  <title>Large Dynamic Covariance Matrices (Code) | </title>
   
 
 
@@ -150,9 +155,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -168,10 +174,9 @@
       <meta itemprop="name" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/Large%20Dynamic%20Covariance%20Matrices-Code/" class="post-title-link" itemprop="url">Large Dynamic Covariance Matrices (Code)</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Large Dynamic Covariance Matrices (Code)
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -195,174 +200,84 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>作者：<a target="_blank" rel="noopener" href="https://www.stern.nyu.edu/rengle/">Robert F.Engle</a>, Olivier Ledoit &amp; Michael Wolf<br>期刊：<a target="_blank" rel="noopener" href="https://amstat.tandfonline.com/loi/jbes">Journal of Business &amp; Economic Statistics</a><br>接收：2017年6月28日</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/Large%20Dynamic%20Covariance%20Matrices-Code/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <p>作者：<a target="_blank" rel="noopener" href="https://www.stern.nyu.edu/rengle/">Robert F.Engle</a>, Olivier Ledoit &amp; Michael Wolf<br>期刊：<a target="_blank" rel="noopener" href="https://amstat.tandfonline.com/loi/jbes">Journal of Business &amp; Economic Statistics</a><br>接收：2017年6月28日</p>
+<a id="more"></a>
+<hr>
+<h2 id="Code-list"><a href="#Code-list" class="headerlink" title="Code list"></a>Code list</h2><p>I. DCC_NLreadme.pdf Package documentation.<br>II. DCC_NLdata.mat Test data set for multivariate GARCH model estimation.<br>III. DCC_NLdemo.m Demonstrates estimation of DCC-NL model.<br>IV. DCCcov.m Estimate conditional covariance matrices in DCC-NL model.<br>V. dcc_likestream.c C code to speed up maximization of DCC-NL log-likelihood.<br>VI. dcc_likestream.mexmaci64 Matlab executable of DCC-NL log-likelihood for Mac.<br>VII. dcc_likestream.mexw64 Matlab executable of DCC-NL log-likelihood for Windows.<br>VIII. dcc_likelihood2.m Log-likelihood function of DCC-NL model.<br>IX. BEKK_NLdemo.m Demonstrates estimation of BEKK-NL model.<br>X. BEKKcov.m Estimate conditional covariance matrices in BEKK-NL model.<br>XI. vt_likestream.c C code to speed up maximization of BEKK-NL log-likelihood.<br>XII. vt_likestream.mexmaci64 Matlab executable of BEKK-NL log-likelihood for Mac.<br>XIII. vt_likestream.mexw64 Matlab executable of BEKK-NL log-likelihood for Windows.  </p>
+<h2 id="dcc-likelihood2"><a href="#dcc-likelihood2" class="headerlink" title="dcc_likelihood2"></a>dcc_likelihood2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function [ll,lls,Rt] &#x3D; dcc_likelihood2(parameters,data,m,n,R,N,backCast,stage,composite,isJoint,isInference,gScale,univariate)</span><br></pre></td></tr></table></figure>
+<p>输入：</p>
+<ul>
+<li>PARAMETERS   - Vector of ADCC parameters, and possibly volatility and intercept parameters, depending on other inputs</li>
+<li>DATA         - T <em> K的0均值残差矩阵 或者K</em>K*T 协方差估计器数组 (e.g. 真实协方差)</li>
+<li>M            - Order of symmetric innovations in DCC model</li>
+<li>N            - Order of lagged correlation in DCC model</li>
+<li>R            - K by K 标准化数据的关系矩阵</li>
+<li>N            - K by K 非对称标准化数据外积的矩阵平均值</li>
+<li>BACKCAST     - K by K  matrix to use for back casting symetric terms</li>
+<li>STAGE        - Integer, either 2 or 3 indicating whether 2-stage ro 3-stage estimator is being used</li>
+<li>COMPOSITE    - Integer, one of 0 (None, use QMLE), 1 (Use diagonal composite) or 2 (full composite)</li>
+<li>ISJOINT      - Boolean indicating whether PARAMETERS includes volatility parameters</li>
+<li>ISINFERENCE  - Boolean indicating whether likelihood is used for making inference, in which case no transformations are made to parameters.</li>
+<li>GSCALE       - K by 1 vector used in 2-stage to scale the intercept.  See DCC.</li>
+<li>UNIVARIATE   - Cell array of structures containing information needed to compute volatilities.</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>LL           - 根据参数估计出的对数似然函数值</li>
+<li>LLS          - A T by 1 vector of log-likelihoods</li>
+<li>RT           - A [K K T] dimension matrix of conditional correlations</li>
+</ul>
+<h2 id="DCCcov"><a href="#DCCcov" class="headerlink" title="DCCcov"></a>DCCcov</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function [sigmahat, Ht, parameters, ll]&#x3D;DCCcov(x,demean)</span><br></pre></td></tr></table></figure>
+<p>输入：</p>
+<ul>
+<li>x            - 0均值的T * K残差矩阵</li>
+<li>demean       - 01变量，默认为1。如果需要先demean则为1,f否则为0</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>sigmahat     - K*K 条件协方差矩阵。 样本最后一天的矩阵，即 Ht(:,:,end)]</li>
+<li>Ht           - A [K K T] dimension matrix of conditional covariances</li>
+<li>PARAMETERS   - Estimated parameters.<ul>
+<li>3-stage: [VOL(1) … VOL(K) corr_vech(R)’ vech(N)’ alpha gamma beta]</li>
+<li>where VOL(j) is a 3-dimensional vector containing the parameters from volatility model j.</li>
+</ul>
+</li>
+<li>LL           - 最优对数似然函数。The log likelihood at the optimum</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stdData &#x3D; zeros(k,k,T);  </span><br><span class="line">for t&#x3D;1:T  </span><br><span class="line">   stdData(:,:,t) &#x3D; x(t,:)&#39;*x(t,:);  </span><br><span class="line">end  </span><br></pre></td></tr></table></figure>
+<p>把输入x的第t行的转置乘以其本身，得到一个K*K的矩阵，存入stdData的第t行,相当于每一个时期的$R_t$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">options &#x3D; optimset(&#39;fmincon&#39;);</span><br><span class="line">options.Display &#x3D; &#39;none&#39;;</span><br><span class="line">options.Diagnostics &#x3D; &#39;off&#39;;</span><br><span class="line">options.Algorithm &#x3D; &#39;interior-point&#39;;</span><br><span class="line">options.TolX&#x3D;1e-6;</span><br><span class="line">options.TolFun&#x3D;1e-4;</span><br><span class="line">optimset(options)</span><br></pre></td></tr></table></figure>
+<p>最优化设置</p>
+<h3 id="Univariate-volatility-models"><a href="#Univariate-volatility-models" class="headerlink" title="Univariate volatility models"></a>Univariate volatility models</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[H,univariate] &#x3D; dcc_fit_variance(x,ones(k,1),zeros(k,1), ...</span><br><span class="line">   ones(k,1),2*ones(k,1),[]);</span><br><span class="line"></span><br><span class="line">for t&#x3D;1:T</span><br><span class="line">   h &#x3D; sqrt(H(t,:));</span><br><span class="line">   hh &#x3D; h&#39;*h;</span><br><span class="line">   stdData(:,:,t) &#x3D; stdData(:,:,t).&#x2F;hh;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>计算出协方差$H_t$，对第t行的$H_t$开根号得到1<em>K向量h，h的转置乘以h得到K</em>K矩阵hh，对第t维的K*K矩阵stdDate点除了hh进行了更新</p>
+<h3 id="Back-casts"><a href="#Back-casts" class="headerlink" title="Back casts"></a>Back casts</h3>
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/covariance/" rel="tag"><i class="fa fa-tag"></i> covariance</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/VEC-BEKK/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_dalian.jpg">
-      <meta itemprop="name" content="JIAYU LI">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/26/VEC-BEKK/" class="post-title-link" itemprop="url">On asymptotic theory for multivariate GARCH models</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-26 23:43:50" itemprop="dateCreated datePublished" datetime="2020-09-26T23:43:50+08:00">2020-09-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-28 01:04:15" itemprop="dateModified" datetime="2020-09-28T01:04:15+08:00">2020-09-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>作者：Christian M. Hafner, Arie Preminger<br>期刊：Journal of Multivariate Analysis<br>接收：2007年10月0日</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/26/VEC-BEKK/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/17/Large%20Dynamic%20Covariance%20Matrices/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_dalian.jpg">
-      <meta itemprop="name" content="JIAYU LI">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/17/Large%20Dynamic%20Covariance%20Matrices/" class="post-title-link" itemprop="url">Large Dynamic Covariance Matrices</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-17 10:42:44" itemprop="dateCreated datePublished" datetime="2020-09-17T10:42:44+08:00">2020-09-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-29 09:40:35" itemprop="dateModified" datetime="2020-09-29T09:40:35+08:00">2020-09-29</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>作者：<a target="_blank" rel="noopener" href="https://www.stern.nyu.edu/rengle/">Robert F.Engle</a>, Olivier Ledoit &amp; Michael Wolf<br>期刊：<a target="_blank" rel="noopener" href="https://amstat.tandfonline.com/loi/jbes">Journal of Business &amp; Economic Statistics</a><br>接收：2017年6月28日</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/17/Large%20Dynamic%20Covariance%20Matrices/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/26/VEC-BEKK/" rel="prev" title="On asymptotic theory for multivariate GARCH models">
+      <i class="fa fa-chevron-left"></i> On asymptotic theory for multivariate GARCH models
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -415,6 +330,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-list"><span class="nav-number">1.</span> <span class="nav-text">Code list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dcc-likelihood2"><span class="nav-number">2.</span> <span class="nav-text">dcc_likelihood2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DCCcov"><span class="nav-number">3.</span> <span class="nav-text">DCCcov</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Univariate-volatility-models"><span class="nav-number">3.1.</span> <span class="nav-text">Univariate volatility models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Back-casts"><span class="nav-number">3.2.</span> <span class="nav-text">Back casts</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
